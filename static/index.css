@@ -1,0 +1,140 @@
+html,body{
+    margin: 4px;
+    padding: 4px;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Rubik';
+    letter-spacing: 3px;
+}
+
+
+/* element */
+  
+.let_space{
+    letter-spacing: 1px;
+}
+
+
+.c_grid{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 1vmax;
+}
+   
+.grid{
+    display: grid;
+    grid-gap: 1vmax;
+}
+   
+  
+   
+.box2{
+    grid-template-columns: 2fr 2fr;
+}
+  
+.box3{
+    grid-template-columns: 1fr 1fr 1fr;
+} 
+
+/* element */
+
+.table_cont{
+    overflow-x: scroll;
+    width: 70vw;
+}
+
+table {
+    border-collapse: collapse;
+    letter-spacing: 3px;
+    /* width: 100%; */
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 3vmax;
+    width: fit-content;
+}
+
+form{
+    margin: 1vmax 0vmax;
+    text-align: left;
+    padding:3vmax;
+    border: 1px solid #e84949;
+}
+
+label{
+    font-size: 5vmax;
+}
+
+input{
+    padding:1vmax;
+    font-size: 1.2vmax;
+    border: 0.5px solid #dddddd;
+    outline: none;
+}
+
+select{
+    padding: 5vmax;
+    font-size: 1.3vmax;
+    border: 1px solid #dddddd;
+    outline: none;
+    letter-spacing: 1px;
+}
+
+option{
+    font-size: 5vmax;
+    letter-spacing: 5px;
+}
+
+.file_submit{
+  margin-top: 1vmax;
+  border: 1px solid #55acee;
+  outline: none;
+  background-color: #55acee;
+  color: white;
+  padding: 1vmax;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 3px;
+}
+
+.file_submit:hover{
+  background-color: white;
+  color: #55acee
+}
+
+ul li{
+    float: right;
+    list-style-type: none;
+ }
+
+
+
+ul li{
+    display: inline-flex;
+ }
+ 
+ ul li a{
+    test-decoration: none;
+    color: rgb(159, 134, 235);
+    padding: 1px 10px;
+    border: 0.3px solid #e84949;
+ }
+
+ .block {
+    display: block;
+    align-items: center;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    padding: 7px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    width: fit-content;
+  }
+  body {
+    background-color: #d8d8d8;
+  }
