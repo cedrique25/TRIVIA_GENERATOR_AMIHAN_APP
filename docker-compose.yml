@@ -1,0 +1,40 @@
+version: "3"  # optional since v1.27.0
+services:
+  web:
+    build: ./
+    ports:
+      - "70:70"
+    container_name: trivia-webpage
+    depends_on:
+      - db
+    volumes:
+      - my-trivia:/var/www/html
+     # - /tmp/slack_bot/mysqld:/run/mysqld
+      
+  db:
+    image: mysql:8.0
+    #restart: always
+    container_name: db-123
+    environment:
+     #- MYSQL_HOST=localhost
+     #- MYSQL_USER=root
+    # - MYSQL_PASSWORD=12345
+     - MYSQL_ROOT_PASSWORD=12345
+     - MYSQL_DATABASE=flaskapp
+  #   - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "3309:3306"
+    volumes:
+      - db-1:/var/lib/mysql
+     # - /tmp/flaskapp/mysqld:/var/run/mysqld
+# Names our volume
+volumes:
+  db-1:
+  my-trivia:
+ 
+  
+
+
+
+
+

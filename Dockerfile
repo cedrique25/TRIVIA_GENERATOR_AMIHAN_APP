@@ -1,8 +1,11 @@
 FROM python:3.10.4
 
-WORKDIR /trivia-page
+WORKDIR /flaskapp
+COPY . . 
+
 RUN pip install -r requirements.txt
+#RUN apt-get update -y
+#RUN apt-get install vim -y
 
-COPY ..
 
-CMD ["python", "./flaskapp/app.py"]
+CMD ["python", "app.py"]

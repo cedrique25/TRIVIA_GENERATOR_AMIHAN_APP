@@ -1,3 +1,5 @@
 flask
 flask-mysqldb
 pyyaml
+#quotes-wrapper
+
