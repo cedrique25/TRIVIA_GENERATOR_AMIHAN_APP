@@ -138,3 +138,16 @@ ul li{
   body {
     background-color: #d8d8d8;
   }
+
+  .Quote {
+    display: block;
+    align-items: center;
+    width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    padding: 7px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    width: fit-content;
+  }

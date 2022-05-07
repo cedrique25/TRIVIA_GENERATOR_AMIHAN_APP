@@ -1,82 +1,26 @@
 from flask import Flask, jsonify, render_template, request, redirect
-from quote import Quote
 from flask_mysqldb import MySQL
 import yaml
 
-
-
 app = Flask(__name__)
-
-
 # Configure db
 db = yaml.safe_load(open('db.yaml'))  
 #db = yaml.load(open('db.yaml'))
 app.config['MYSQL_HOST'] = db['mysql_host']
 app.config['MYSQL_USER'] = db['mysql_user']
 app.config['MYSQL_PASSWORD'] = db['mysql_password']
-app.config['MYSQL_DB'] =  db['mysql_db']
+app.config['MYSQL_DB'] =  db['mysql_database']
 
 mysql = MySQL(app)
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        # Fetch form data
-        userDetails = request.form
-        name = userDetails['name']
-        email = userDetails['email']
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO users(name, email) VALUES(%s, %s)",(name, email))
-        mysql.connection.commit()
-        cur.close()
-        return redirect('/users')
-    return render_template('index.html')
-
-@app.route('/users')
-def users():
+@app.route('/trivia')
+def trivia():
     cur = mysql.connection.cursor()
-    resultValue = cur.execute("SELECT * FROM users")
+    resultValue = cur.execute("SELECT * FROM users ORDER BY rand() LIMIT 1")
     if resultValue > 0:
         userDetails = cur.fetchall()
         return render_template('users.html',userDetails=userDetails)
       
-@app.route('/trivia')
-def get_random_quote():
-    quotes = Quote()
-    random_quote = quotes.get_random_quote()
-    return jsonify({'TRIVIA' : random_quote['trivia'], 'MEMBER:' : random_quote['member']})
-
-
-@app.route('/my-link/')
-def my_link():
-  print ('I got clicked!')
-
-  return 'Click.'
-
-@app.route('/trivia1.html')
-def trivia1():
-  return render_template('trivia1.html')
-
-@app.route('/trivia2.html')
-def trivia2():
-  return render_template('trivia2.html')
-
-@app.route('/trivia3.html')
-def trivia3():
-  return render_template('trivia3.html')
-
-@app.route('/trivia4.html')
-def trivia4():
-  return render_template('trivia4.html')
-
-@app.route('/trivia5.html')
-def trivia5():
-  return render_template('trivia5.html')
-
-@app.route('/trivia6.html')
-def trivia6():
-  return render_template('trivia6.html')
-
 if __name__ == '__main__':
      
     app.debug = True
